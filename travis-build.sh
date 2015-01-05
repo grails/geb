@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-rm -rf *.zip
 ./gradlew test assemble
 
 filename=$(find build/libs -name "*.jar" | head -1)
