@@ -1,43 +1,54 @@
-ext {
-  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
-  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
-  gradleWrapperVersion = "2.3-20141120230022+0000"
-}
-
 buildscript {
     ext {
-      grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+      grailsVersion = project.grailsVersion
     }
     repositories {
         mavenLocal()
-        mavenCentral()
         maven { url "http://repo.grails.org/grails/core" }
-        maven { url "http://repo.spring.io/libs-release" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
     }
 }
 
+plugins {
+  id "com.jfrog.bintray" version "1.0"
+  id "io.spring.dependency-management" version "0.3.1.RELEASE"
+}
+
+ext {
+  grailsVersion = project.grailsVersion
+  gradleWrapperVersion = project.gradleWrapperVersion
+}
+
 version "1.0-SNAPSHOT"
 group "org.grails.plugins"
 
 apply plugin: "org.grails.grails-plugin"
-apply plugin: "maven"
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
+apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 repositories {
   mavenLocal()
-  mavenCentral()
   maven { url "http://repo.grails.org/grails/core" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
 }
 
 
 dependencies {
-  provided "org.grails:grails-dependencies:$grailsVersion"
+  provided "org.grails:grails-dependencies"
   runtime 'org.gebish:geb-spock:0.10.0', {
     exclude group:'org.codehaus.groovy', module:'groovy-all'
   }
@@ -55,8 +66,6 @@ idea {
         scopes.PROVIDED.plus += [configurations.provided]
     }
 }
-
-
 
 task wrapper(type: Wrapper) {
   gradleVersion = gradleWrapperVersion
