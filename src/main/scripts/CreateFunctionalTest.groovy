@@ -7,5 +7,5 @@ description("Creates a Geb Functional Test") {
 
 model = model( args[0] )
 render	template:"FunctionalSpec.groovy",
-		destination: file( "src/test/groovy/$model.packagePath/${model.simpleName}Spec.groovy"),
+		destination: file( "src/integration-test/groovy/$model.packagePath/${model.simpleName}Spec.groovy"),
 		model: model
