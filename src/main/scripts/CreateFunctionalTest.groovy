@@ -1,7 +1,7 @@
 description("Creates a Geb Functional Test") {
     usage "grails create-functional-test [TEST NAME]"
     argument name:'Test Name', description:"The name of the test"
-	completer org.grails.cli.interactive.completers.DomainClassCompleter    
+	completer AllClassCompleter
 }
 
 
