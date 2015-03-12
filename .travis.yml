@@ -20,3 +20,5 @@ deploy:
   file: build/libs/geb-${TRAVIS_TAG:1}.jar
   on:
     repo: grails3-plugins/geb
+    tags: true
+    all_branches: true
