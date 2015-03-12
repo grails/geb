@@ -13,3 +13,10 @@ env:
   - secure: WxyohkKRngaIbbUgHYLKswX99eqRdhC4oaW6zWuzIBddlYaQkCz0cuCvnTemiwuAIvKLn1yygmL1EqcFQIx5s+6bCwGHUeoPiJeC23YNJPeQc8Rfl4GW+ofNCucZ+7oKK7LOOuPz1zZBn+hCfBo7lVIsMsw9KyUpwjWcRfOGH3Q=
   - secure: Yf4sBMGEhpMCu3pjqmOlT8QaGX8O4HY7xkbh+AZap7xUgM1zTVtOqH1oRhWGTSIgF/VU8xvx+DMpiRuNCXnPdrCP5Kz9gdo3LM0GejsTXcVfau/A2/nLCKc7Xp5+1/KDjTfvB+8eRzYuezlmYmmiyseL8KZgqKzTP+H41oonnWk=
   - secure: RxkT3DmVvI0kHT9ZUxOVbLgpdNqnWqnwhPiYQgSzp+qM8r5WO955FXoldmj8b2jB3V7OVsh2Tk92b8BXWeSP4yKpuFhx4IjpNsQUjz7ATrteg+yUph5TJb5yW826rC4bA7jfeO9THGJYOnYhy0fWxixalhK9s0Ge6/ufpLGuwT4=
+deploy:
+  provider: releases
+  api_key:
+    secure: m7e4FuggqcA7DnyBCpPnrO4UZ1fDU0Eg9KlN2r0yifRfdxMdOcNNFfDdaEiJAuXJTjxoaBCgXQu3ALHHLkSeaAACkHDPxwmbba3KRYS757Z7jjYU8DLprj7m1iWecVu5Iccl1i2RUZcjZU4uVgnFC4UFuXZ/e9yM8/qLATshA8Y=
+  file: build/libs/geb-${TRAVIS_TAG:1}.jar
+  on:
+    repo: grails3-plugins/geb
