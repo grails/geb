@@ -7,7 +7,7 @@ import spock.lang.*
 import geb.spock.*
 
 /**
- * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
+ * See http://www.gebish.org/manual/current/ for more instructions
  */
 @Integration
 @Rollback
