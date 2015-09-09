@@ -12,8 +12,8 @@ buildscript {
 }
 
 plugins {
-  id "com.jfrog.bintray" version "1.0"
-  id "io.spring.dependency-management" version "0.4.0.RELEASE"
+  id "com.jfrog.bintray" version "1.2"
+  id "io.spring.dependency-management" version "0.5.2.RELEASE"
 }
 
 ext {
@@ -21,7 +21,7 @@ ext {
   gradleWrapperVersion = project.gradleWrapperVersion
 }
 
-version "1.0.1-SNAPSHOT"
+version "1.0.1"
 group "org.grails.plugins"
 
 apply plugin: "org.grails.grails-plugin"
