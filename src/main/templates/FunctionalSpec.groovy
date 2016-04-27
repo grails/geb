@@ -24,6 +24,6 @@ class ${className}Spec extends GebSpec {
             go '/'
 
         then:"The title is correct"
-        	\$('title').text() == "Welcome to Grails"
+        	title == "Welcome to Grails"
     }
 }
