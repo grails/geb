@@ -21,7 +21,7 @@ ext {
   gradleWrapperVersion = project.gradleWrapperVersion
 }
 
-version "1.0.2-SNAPSHOT"
+version "1.0.2"
 group "org.grails.plugins"
 
 apply plugin: "org.grails.grails-plugin"
