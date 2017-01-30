@@ -49,7 +49,7 @@ dependencyManagement {
 
 dependencies {
   provided "org.grails:grails-dependencies"
-  runtime 'org.gebish:geb-spock:0.12.2', {
+  runtime 'org.gebish:geb-spock:1.1.1', {
     exclude group:'org.codehaus.groovy', module:'groovy-all'
   }
   runtime "org.seleniumhq.selenium:selenium-support:2.47.1"
