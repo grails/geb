@@ -11,10 +11,6 @@ buildscript {
     }
 }
 
-plugins {
-  id "com.jfrog.bintray" version "1.2"
-  id "io.spring.dependency-management" version "0.5.2.RELEASE"
-}
 
 ext {
   grailsVersion = project.grailsVersion
@@ -25,11 +21,7 @@ version "1.1.2-SNAPSHOT"
 group "org.grails.plugins"
 
 apply plugin: "org.grails.grails-plugin"
-apply plugin: 'maven-publish'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
-apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
+apply plugin:"org.grails.grails-plugin-publish"
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -39,34 +31,24 @@ repositories {
   maven { url "http://repo.grails.org/grails/core" }
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.grails:grails-bom:$grailsVersion"
-    }
-    applyMavenExclusions false
-}
 
 
 dependencies {
-  provided "org.grails:grails-dependencies"
+  provided "org.grails:grails-core"
   runtime 'org.gebish:geb-spock:1.1.1', {
     exclude group:'org.codehaus.groovy', module:'groovy-all'
   }
   runtime "org.seleniumhq.selenium:selenium-support:2.47.1"
 }
 
-eclipse {
-    classpath {
-        plusConfigurations += [configurations.provided]
+grailsPublish {
+    userOrg = 'grails'
+    githubSlug = 'grails3-plugins/geb'
+    license {
+        name = 'Apache-2.0'
     }
+    title = "Grails Geb Plugin"
+    desc = "Provides Integration with Geb for Functional Testing"
+    developers = [jeffbrown: "Jeff Scott Brown"]
 }
 
-idea {
-    module {
-        scopes.PROVIDED.plus += [configurations.provided]
-    }
-}
-
-task wrapper(type: Wrapper) {
-  gradleVersion = gradleWrapperVersion
-}
