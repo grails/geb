@@ -1,6 +1,6 @@
 package ${packageName}
 
-import grails.testing.mixin.integration.Integration
+import grails.test.mixin.integration.Integration
 import grails.transaction.*
 
 import geb.spock.*
