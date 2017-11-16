@@ -11,7 +11,6 @@ buildscript {
     }
 }
 
-
 ext {
   grailsVersion = project.grailsVersion
   gradleWrapperVersion = project.gradleWrapperVersion
@@ -31,14 +30,11 @@ repositories {
   maven { url "http://repo.grails.org/grails/core" }
 }
 
-
-
 dependencies {
   provided "org.grails:grails-core"
-  runtime 'org.gebish:geb-spock:1.1.1', {
+  runtime 'org.gebish:geb-spock:2.0', {
     exclude group:'org.codehaus.groovy', module:'groovy-all'
   }
-  runtime "org.seleniumhq.selenium:selenium-support:2.47.1"
 }
 findMainClass.enabled=false
 grailsPublish {
