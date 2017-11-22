@@ -4,21 +4,10 @@ jdk:
 sudo: false
 cache:
   directories:
-  - $HOME/.gradle
+  - "$HOME/.gradle"
 before_script:
 - rm -rf target
-script: ./travis-build.sh
-env:
-  global:
-  - GIT_NAME="Graeme Rocher"
-  - GIT_EMAIL="graeme.rocher@gmail.com"
-  - secure: Jv7h5a516QUzPzfYNKxz41+hSXMOhoGeUhglx/UzXwrsVncH1qKpDrBV+cJkGNMA83+vXjumwlIGKO0GzYAnem1ICSzAbTecv3VSXVX+2hjrU9gxB8C3Os1pBlt04ds06yWibTOAIaSXyH8a9c6E2K2xWOKxSQ9BcjB1yP3BMAA=
-  - secure: EqXC1PCc1o6OCIJdT8p+6WGD2pROnp8Tb8H8zpCrUe+rAzVkhr9Jw/jMymI4i75MQCHcIA7/mM3fwJCSXqxk6ch3+KwIdfX9Ldph8WIIOs/mT7uOsMirOSvpyJCDwoguOGQVA8rWEVymemL+GlpNOjE/u/mhYQ+mIgEdyBN6cfo=
-  - secure: QuP+ODiBJn8whRrDsIdRBSJ+GOxq8KF8ClZgr2oDKnYTPB1uoCFvvit3TXWLp/fdB1ABjJoq+hLW2KPai7B7FdqX7y30m73ZLUekAgVei5z2f14I5uTS72fnc96ANUvwX7yycLkiyeZ4GG6LlbgFqNzTRErP7UO5FYe7CLqGF/Y=
-  - secure: BkU9dYTqM3AD9NmAK+8C/1o1k/ydoCIpGw80qZf8dZ575yDLkbkvJcTdIH+LQNeg/3T3lWq62FeDxntpR1WhX6IOdVk+xixk6s2t+RQtwB3XuIL04HmXGH6v4UCue9ZUctMcvipstXQOjzShgMqZ69BzjmTkkMFv+sig9Wbg/VQ=
-  - secure: Oah5iuizLISjWK8J19idP/Yo71CpY83P/3azNJ4fwKBSLaKKDFgF0OhxrzgN9t5Da/q3fkzeevFoTspZjUUtj122UioIXt0U0R4gI1r4dyPG9j0gJ0RL/nGIOIs6FZmJdrnBvCr5+p6BxUG3oVNArXBTjnfmaamFdZsja0N2ifQ=
-  - secure: VwkaJeu6znmAUbPjnbgyuRh62Jrji/WplzXoplhebQ5PupuhB2iA1YCowTLjk+/uDqk8qOTzr3zRuROlwZT08JN3elxVz30HkirwlXLKWlja3Fg7/I+Jm3NkrJYalefKCSpQnzVTTJwa0d+jOnMT+VtSfBqvC76VvZlEH0z7LEA=
-  - secure: fyOkoihacSQjQcXF4nxtg/9WL0OCFzfQxBcVRGO9FL4fCcEmy4s7rDyu9gkJTCK9OGqQdAD0cRnBQmYny8GhErsudvglCskOO/1xE/wQJqEh8ZwI67kbLwkeBriKVIjRR47aMBDaINoF/9uuDovzsexwydJxDWSgATk6l5/UqHc=
+script: "./travis-build.sh"
 deploy:
   provider: releases
   api_key:
@@ -28,3 +17,12 @@ deploy:
     repo: grails3-plugins/geb
     tags: true
     all_branches: true
+env:
+  global:
+  - secure: CeGK9pfTG6Okg0KCdksgflnNm2pY6thPLFlVWYOGIHy946rXMrxG1nC58ug7oY8Ng/BxppDrV9YkD6Z5wPc8ZtA+/pOQL4MZlseeJUOTxwx9feWFLEd2p338t9BGJbP+7GrOKCkPTiJBAOQhn/WyM+jpfmTAc5E6nteMWDyAVt4=
+  - secure: Dym0gTvDOPy4M83WLWmNngKQa23QqE6sZBgoIgFUx3ipLvb4aZH8Q9AsVhaj/HsC+9S8/a+N2Ked9aVq8oVq13bIHXNGvmI5ecZoUXGtRKXP+04wTo3XlT94dfJYshs9qirzjI0/l68sh0oXWA3RImUaxKUVtWZnF90MUy8DrsY=
+  - secure: WpDvrufwrOo9ZZCgWlleYoOnKL8Xa+q5qHxiKuqqHtMrH2t18yZtdTvpUZATLrfMUFIpC+8YZcvSbsKrbUXi3P6C03A+Yjglitt4KviAX9hBiQKVoOgd1e3ykMLLl3LnwUb8bhAf63jOHn/yhjLKE8rhssZDYbj8KoWWcD5S9zU=
+  - secure: Hzv70m5K93f89YDIFrrfeygygUKdVv2P5i1bT30pKKRzqcci6n0/Fz5rVz5GK1//0io01xaWk4ooERnI6HzBy5xR2VqVfhC/ErOw3ETM8rHsH+VDWvOaQ4suZu0C3YvUXECyYyh+0a3XFJim1Q+FaRb5PmTMNf+WcLZD+gGABrA=
+  - secure: WnoIzEgI/wjXn6sKQLdKBk6QuYiSsg/pViaU+rN98M9l9ERf5JluwABz7QBSKuLdgPq2Nk/5Fnx44n1Y8Bv6tOu5ipF99wp6JQalRV97ySSlqkxc35BlyUuxQTIJLvO7ysop4CDMcHkxgn+BiIzgpYuH+rdjSTsHNJT5nFFfPN8=
+  - secure: E6iSE4YV1OoDC3wj1nA1wTWz+R0ER6tbXRZvEle/kSggBZ2j70Zllhtsv0FaFvWIWI6Jpgs4/fJ/QR7FA7/dppul7ph9r97vRmjGwwRU3eFK2HIDliaVsONuc5az3DHqrmuBpsE8T5mMl7EieKnGC3cB9FRqBPxTodeKznslsS0=
+  - secure: dmeihFGnQiZLgWMqTu9tO3yI/46j612ppjcZgqvozEf1Ddi1SIwAOmmeppQsRw4ZGH6D4D0MjKGKN1AQKLz7myCx3jsDHFlbyJFTaEpNSbzVcjMNypx9DJ6Bk620+NPI6DjgTFKLbxv6b5bFV4WCxGABYJ/zJtn1tBT7wmgl9ic=
