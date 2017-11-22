@@ -1,6 +1,6 @@
 language: groovy
 jdk:
-- openjdk7
+- openjdk8
 sudo: false
 cache:
   directories:
