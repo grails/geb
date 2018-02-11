@@ -32,7 +32,7 @@ repositories {
 
 dependencies {
   provided "org.grails:grails-core"
-  runtime 'org.gebish:geb-spock:2.0', {
+  runtime 'org.gebish:geb-spock:2.1', {
     exclude group:'org.codehaus.groovy', module:'groovy-all'
   }
 }
