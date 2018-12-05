@@ -6,8 +6,8 @@ before_cache:
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 script: "./travis-build.sh"
 deploy:
   provider: releases
@@ -22,8 +22,8 @@ env:
   global:
   - secure: CeGK9pfTG6Okg0KCdksgflnNm2pY6thPLFlVWYOGIHy946rXMrxG1nC58ug7oY8Ng/BxppDrV9YkD6Z5wPc8ZtA+/pOQL4MZlseeJUOTxwx9feWFLEd2p338t9BGJbP+7GrOKCkPTiJBAOQhn/WyM+jpfmTAc5E6nteMWDyAVt4=
   - secure: Dym0gTvDOPy4M83WLWmNngKQa23QqE6sZBgoIgFUx3ipLvb4aZH8Q9AsVhaj/HsC+9S8/a+N2Ked9aVq8oVq13bIHXNGvmI5ecZoUXGtRKXP+04wTo3XlT94dfJYshs9qirzjI0/l68sh0oXWA3RImUaxKUVtWZnF90MUy8DrsY=
-  - secure: WpDvrufwrOo9ZZCgWlleYoOnKL8Xa+q5qHxiKuqqHtMrH2t18yZtdTvpUZATLrfMUFIpC+8YZcvSbsKrbUXi3P6C03A+Yjglitt4KviAX9hBiQKVoOgd1e3ykMLLl3LnwUb8bhAf63jOHn/yhjLKE8rhssZDYbj8KoWWcD5S9zU=
   - secure: Hzv70m5K93f89YDIFrrfeygygUKdVv2P5i1bT30pKKRzqcci6n0/Fz5rVz5GK1//0io01xaWk4ooERnI6HzBy5xR2VqVfhC/ErOw3ETM8rHsH+VDWvOaQ4suZu0C3YvUXECyYyh+0a3XFJim1Q+FaRb5PmTMNf+WcLZD+gGABrA=
   - secure: WnoIzEgI/wjXn6sKQLdKBk6QuYiSsg/pViaU+rN98M9l9ERf5JluwABz7QBSKuLdgPq2Nk/5Fnx44n1Y8Bv6tOu5ipF99wp6JQalRV97ySSlqkxc35BlyUuxQTIJLvO7ysop4CDMcHkxgn+BiIzgpYuH+rdjSTsHNJT5nFFfPN8=
   - secure: E6iSE4YV1OoDC3wj1nA1wTWz+R0ER6tbXRZvEle/kSggBZ2j70Zllhtsv0FaFvWIWI6Jpgs4/fJ/QR7FA7/dppul7ph9r97vRmjGwwRU3eFK2HIDliaVsONuc5az3DHqrmuBpsE8T5mMl7EieKnGC3cB9FRqBPxTodeKznslsS0=
   - secure: dmeihFGnQiZLgWMqTu9tO3yI/46j612ppjcZgqvozEf1Ddi1SIwAOmmeppQsRw4ZGH6D4D0MjKGKN1AQKLz7myCx3jsDHFlbyJFTaEpNSbzVcjMNypx9DJ6Bk620+NPI6DjgTFKLbxv6b5bFV4WCxGABYJ/zJtn1tBT7wmgl9ic=
+  - secure: aoE1VNoLnubxUwIjZi7ThCPfXbwMQ4xJrvNCVVl4Gm6r3E2fwxW51FDZSX7NkYa/UfKy08dj8iaJUfAwqd8zoilwRvf7nFQVfR2HJQ6kHForeXzgtkwnSCg/h2fjT4ca1Qcg1GQye8eh4ydXpnAPPCL7mCHOPdgP/k6lSLs13yk=
