@@ -32,6 +32,4 @@ Plugin that adds Geb functional testing code generation features.
 
     // Online location of the plugin's browseable source code.
     def scm = [ url: "http://github.com/grails3-plugins/geb" ]
-
-
 }
