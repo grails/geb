@@ -1,7 +1,9 @@
 package geb
 
-import grails.plugins.*
+import grails.plugins.Plugin
+import groovy.transform.CompileStatic
 
+@CompileStatic
 class GebGrailsPlugin extends Plugin {
 
    // the version or versions of Grails the plugin is designed for
