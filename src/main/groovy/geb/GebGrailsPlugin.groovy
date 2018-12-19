@@ -1,8 +1,10 @@
 package geb
 
 import grails.plugins.Plugin
+import grails.plugins.metadata.PluginSource
 import groovy.transform.CompileStatic
 
+@PluginSource
 @CompileStatic
 class GebGrailsPlugin extends Plugin {
 
