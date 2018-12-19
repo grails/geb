@@ -1,6 +1,8 @@
 Grails 3.x Geb Plugin
 ===
 
+[![Build Status](https://travis-ci.org/grails3-plugins/geb.svg?branch=master)](https://travis-ci.org/grails3-plugins/geb)
+
 Geb Functional Testing for Grails 3.0
 
 
