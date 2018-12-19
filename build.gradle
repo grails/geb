@@ -9,6 +9,8 @@ buildscript {
 }
 
 ext {
+    isGrailsPlugin = true
+    isBuildSnapshot = projectVersion.toString().endsWith("-SNAPSHOT")
     commonBuild = 'https://raw.githubusercontent.com/grails/grails-common-build/1549696f8d1a6bce3d84db9c4c1bfde61eddf175'
 }
 
@@ -33,13 +35,3 @@ dependencies {
   }
 }
 findMainClass.enabled=false
-grailsPublish {
-    userOrg = 'grails'
-    githubSlug = 'grails3-plugins/geb'
-    license {
-        name = 'Apache-2.0'
-    }
-    title = "Grails Geb Plugin"
-    desc = "Provides Integration with Geb for Functional Testing"
-    developers = [jeffbrown: "Jeff Scott Brown"]
-}
