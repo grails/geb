@@ -34,6 +34,7 @@ dependencies {
     documentation "org.codehaus.groovy:groovy:$groovyVersion"
     documentation "org.codehaus.groovy:groovy-ant:$groovyVersion"
     documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
+    documentation "com.github.javaparser:javaparser-core:3.15.14"
 }
 
 findMainClass.enabled = false
@@ -62,17 +63,11 @@ grailsPublish {
     developers = [graemerocher: "Graeme Rocher", puneetbehl: "Puneet Behl"]
 }
 
-
-def apidocs = tasks.register("apidocs", Groovydoc) {
-    group = "documentation"
+tasks.withType(Groovydoc) {
     source project.files('src/main/groovy')
-
     destinationDir = new File(buildDir, 'docs/api')
-    // Might need a classpath
     docTitle = "Grails Geb Plugin ${version}"
-
     classpath = configurations.documentation
-    groovyClasspath = configurations.documentation
 }
 
 tasks.withType(GroovyCompile) {
