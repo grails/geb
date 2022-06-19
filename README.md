@@ -1,4 +1,4 @@
-Grails 3.x Geb Plugin
+Grails Geb Plugin
 ===
 
 [![Build Status](https://travis-ci.org/grails3-plugins/geb.svg?branch=master)](https://travis-ci.org/grails3-plugins/geb)
@@ -14,7 +14,7 @@ If you are looking for examples check:
 
 [Geb/Grails example project](https://github.com/grails-samples/geb-example-grails)
 
-or [Grails 3.x functional test suite](https://github.com/grails/grails3-functional-tests) where Geb tests are used extensively.
+or [Grails functional test suite](https://github.com/grails/grails3-functional-tests) where Geb tests are used extensively.
 
 Additional Drivers
 =======
