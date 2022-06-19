@@ -23,7 +23,7 @@ repositories {
 }
 
 configurations {
-    documentation.extendsFrom runtimeClasspath
+    documentation.extendsFrom compileClasspath
 }
 
 dependencies {
@@ -64,7 +64,6 @@ grailsPublish {
 }
 
 tasks.withType(Groovydoc) {
-    source project.files('src/main/groovy')
     destinationDir = new File(buildDir, 'docs/api')
     docTitle = "Grails Geb Plugin ${version}"
     classpath = configurations.documentation
