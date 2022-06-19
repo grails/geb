@@ -1,12 +1,12 @@
 Grails Geb Plugin
 ===
 
-[![Build Status](https://travis-ci.org/grails3-plugins/geb.svg?branch=master)](https://travis-ci.org/grails3-plugins/geb)
+[![Java CI](https://github.com/grails/geb/actions/workflows/gradle.yml/badge.svg)](https://github.com/grails/geb/actions/workflows/gradle.yml)
 
-Geb Functional Testing for Grails 3.0
+Geb Functional Testing for Grails® framework
 
 
-This plugin just provides the Geb dependencies and a `create-functional-test` command for generating Geb tests in a Grails 3.0 app. For further reference please see the [Geb documentation](http://www.gebish.org)
+This plugin just provides the Geb dependencies and a `create-functional-test` command for generating Geb tests in a Grails app. For further reference please see the [Geb documentation](http://www.gebish.org)
 
 ## Examples
 
