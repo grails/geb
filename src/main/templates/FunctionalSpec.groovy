@@ -1,7 +1,7 @@
 package ${packageName}
 
+import grails.gorm.transactions.Rollback
 import grails.testing.mixin.integration.Integration
-import grails.transaction.*
 
 import geb.spock.*
 

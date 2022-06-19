@@ -1,37 +1,99 @@
 buildscript {
     repositories {
-        mavenLocal()
-        maven { url "http://repo.grails.org/grails/core" }
+        maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
     }
-}
-
-ext {
-    isGrailsPlugin = true
-    isBuildSnapshot = projectVersion.toString().endsWith("-SNAPSHOT")
-    commonBuild = 'https://raw.githubusercontent.com/grails/grails-common-build/1549696f8d1a6bce3d84db9c4c1bfde61eddf175'
 }
 
 version projectVersion
 group "org.grails.plugins"
 
-apply plugin: "org.grails.grails-plugin"
-apply from:"${commonBuild}/common-publishing.gradle"
+apply plugin: 'java-library'
+apply plugin: 'idea'
+apply plugin: 'org.grails.grails-plugin'
+apply plugin: 'org.grails.internal.grails-plugin-publish'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-  mavenLocal()
-  maven { url "http://repo.grails.org/grails/core" }
+    maven { url "https://repo.grails.org/grails/core" }
+}
+
+configurations {
+    documentation.extendsFrom runtimeClasspath
 }
 
 dependencies {
-  provided "org.grails:grails-core"
-  compile "org.gebish:geb-spock:$gebSpock", {
-    exclude group:'org.codehaus.groovy', module:'groovy-all'
-  }
+    api "org.grails:grails-core:$grailsVersion"
+    api "org.gebish:geb-spock:$gebSpock", {
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+    }
+    documentation "org.codehaus.groovy:groovy:$groovyVersion"
+    documentation "org.codehaus.groovy:groovy-ant:$groovyVersion"
+    documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
 }
-findMainClass.enabled=false
+
+findMainClass.enabled = false
+
+bootRun {
+    ignoreExitValue true
+    jvmArgs(
+            '-Dspring.output.ansi.enabled=always',
+            '-noverify',
+            '-XX:TieredStopAtLevel=1',
+            '-Xmx1024m')
+    sourceResources sourceSets.main
+    String springProfilesActive = 'spring.profiles.active'
+    systemProperty springProfilesActive, System.getProperty(springProfilesActive)
+}
+
+
+grailsPublish {
+    userOrg = 'grails'
+    githubSlug = 'grails/geb'
+    license {
+        name = 'Apache-2.0'
+    }
+    title = "Grails Geb Plugin"
+    desc = "Provides Integration with Geb for Functional Testing"
+    developers = [graemerocher: "Graeme Rocher", puneetbehl: "Puneet Behl"]
+}
+
+
+def apidocs = tasks.register("apidocs", Groovydoc) {
+    group = "documentation"
+    source project.files('src/main/groovy')
+
+    destinationDir = new File(buildDir, 'docs/api')
+    // Might need a classpath
+    docTitle = "Grails Geb Plugin ${version}"
+
+    classpath = configurations.documentation
+    groovyClasspath = configurations.documentation
+}
+
+tasks.withType(GroovyCompile) {
+    configure(groovyOptions) {
+        forkOptions.jvmArgs = ['-Xmx1024m']
+    }
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+
+        showExceptions true
+        exceptionFormat "full"
+        showCauses true
+        showStackTraces true
+    }
+}
+
+bootJar.enabled = false
