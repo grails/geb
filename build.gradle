@@ -34,7 +34,7 @@ dependencies {
     documentation "org.codehaus.groovy:groovy:$groovyVersion"
     documentation "org.codehaus.groovy:groovy-ant:$groovyVersion"
     documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
-    documentation "com.github.javaparser:javaparser-core:3.15.14"
+    documentation "com.github.javaparser:javaparser-core:3.24.2"
 }
 
 findMainClass.enabled = false
