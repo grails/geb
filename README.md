@@ -1,21 +1,19 @@
-Grails Geb Plugin
-=================
+# Grails Geb Plugin
 
 [![Java CI](https://github.com/grails/geb/actions/workflows/gradle.yml/badge.svg)](https://github.com/grails/geb/actions/workflows/gradle.yml)
 
-Geb Functional Testing for Grails® framework
+Geb Functional Testing for the Grails® framework.
 
 
 This plugin just provides the Geb dependencies and a `create-functional-test` command for generating Geb tests in a Grails app. For further reference please see the [Geb documentation](http://www.gebish.org)
 
-Examples
---------
+## Examples
 
 If you are looking for examples check:
 
 [Geb/Grails example project](https://github.com/grails-samples/geb-example-grails)
 
-or [Grails functional test suite](https://github.com/grails/grails3-functional-tests) where Geb tests are used extensively.
+## Additional Drivers
 
 Additional Drivers
 ==================
