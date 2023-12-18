@@ -44,7 +44,7 @@ environments {
 }
 ```
 
-Now you can then run your tests with the new driver, by specifying the Geb environment:
+Now you can run your tests with the new driver by specifying the Geb environment:
 ```console
 ./gradlew integrationTest -Dgeb.env=edge
 ```
