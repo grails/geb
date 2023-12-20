@@ -23,7 +23,7 @@ To set up additional drivers you need to add the driver to your `build.gradle` f
 integrationTestRuntimeOnly "org.seleniumhq.selenium:selenium-edge-driver:$seleniumVersion"
 ```
 
-You also need to add it to the `GebConfig.groovy` file in the `src/test/resources/` directory. For example:
+You also need to add it to the `GebConfig.groovy` file in the `src/integration-test/resources/` directory. For example:
 ```groovy
 /*
     This is the Geb configuration file.
