@@ -30,10 +30,12 @@ configurations {
 }
 
 dependencies {
-    api "org.grails:grails-core:$grailsVersion"
-    api "org.gebish:geb-spock:$gebSpock", {
-        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
-    }
+    compileOnly "org.grails:grails-core:$grailsVersion"
+
+    api "org.gebish:geb-spock:$gebSpock"
+    api "org.grails:grails-testing-support:$testingSupportVersion"
+    api "org.grails:grails-datastore-gorm:$datastoreVersion"
+
     documentation "org.apache.groovy:groovy:$groovyVersion"
     documentation "org.apache.groovy:groovy-ant:$groovyVersion"
     documentation "org.apache.groovy:groovy-templates:$groovyVersion"
