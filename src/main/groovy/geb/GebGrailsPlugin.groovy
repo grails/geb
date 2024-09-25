@@ -7,13 +7,11 @@ import groovy.transform.CompileStatic
 @PluginSource
 @CompileStatic
 class GebGrailsPlugin extends Plugin {
-    def grailsVersion = "5.1.0 > *"
-    def pluginExcludes = [
-            "grails-app/views/error.gsp"
-    ]
+    def grailsVersion = "7.0.0 > *"
+    def pluginExcludes = []
     def title = "Grails Geb Plugin"
     def author = "Graeme Rocher"
-    def authorEmail = "grocher@pivotal.io"
+    def authorEmail = ""
     def description = '''\
 Plugin that adds Geb functional testing code generation features.
 '''

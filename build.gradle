@@ -15,8 +15,11 @@ apply plugin: 'idea'
 apply plugin: 'org.grails.grails-plugin'
 apply plugin: 'org.grails.internal.grails-plugin-publish'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
@@ -31,26 +34,13 @@ dependencies {
     api "org.gebish:geb-spock:$gebSpock", {
         exclude group: 'org.codehaus.groovy', module: 'groovy-all'
     }
-    documentation "org.codehaus.groovy:groovy:$groovyVersion"
-    documentation "org.codehaus.groovy:groovy-ant:$groovyVersion"
-    documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
-    documentation "com.github.javaparser:javaparser-core:3.15.14"
+    documentation "org.apache.groovy:groovy:$groovyVersion"
+    documentation "org.apache.groovy:groovy-ant:$groovyVersion"
+    documentation "org.apache.groovy:groovy-templates:$groovyVersion"
+    documentation "com.github.javaparser:javaparser-core:$javaParserCoreVersion"
 }
 
 findMainClass.enabled = false
-
-bootRun {
-    ignoreExitValue true
-    jvmArgs(
-            '-Dspring.output.ansi.enabled=always',
-            '-noverify',
-            '-XX:TieredStopAtLevel=1',
-            '-Xmx1024m')
-    sourceResources sourceSets.main
-    String springProfilesActive = 'spring.profiles.active'
-    systemProperty springProfilesActive, System.getProperty(springProfilesActive)
-}
-
 
 grailsPublish {
     userOrg = 'grails'
@@ -91,3 +81,5 @@ test {
 }
 
 bootJar.enabled = false
+bootRun.enabled = false
+bootTestRun.enabled = false

@@ -17,8 +17,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
-          java-version: '8'
+          distribution: 'temurin'
+          java-version: '17'
       - name: Run Build
         id: build
         uses: gradle/gradle-build-action@v2
@@ -37,8 +37,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
-          java-version: '8'
+          distribution: 'temurin'
+          java-version: '17'
       - name: Publish to repo.grails.org
         uses: gradle/gradle-build-action@v2
         env:
@@ -68,5 +68,5 @@ jobs:
           BRANCH: gh-pages
           FOLDER: build/docs
           DOC_FOLDER: gh-pages
-          COMMIT_EMAIL: behlp@objectcomputing.com
-          COMMIT_NAME: Puneet Behl          
+          COMMIT_EMAIL: 'grails-build@users.noreply.github.com'
+          COMMIT_NAME: 'grails-build'
