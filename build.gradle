@@ -32,6 +32,7 @@ configurations {
 dependencies {
     compileOnly "org.grails:grails-core:$grailsVersion"
 
+    // used transitively by the generated tests
     api "org.gebish:geb-spock:$gebSpock"
     api "org.grails:grails-testing-support:$testingSupportVersion"
     api "org.grails:grails-datastore-gorm:$datastoreVersion"
