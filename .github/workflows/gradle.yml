@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
       - name: Run Build
         id: build
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
           GRADLE_ENTERPRISE_BUILD_CACHE_NODE_USER: ${{ secrets.GRADLE_ENTERPRISE_BUILD_CACHE_NODE_USER }}
@@ -40,7 +40,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - name: Publish to repo.grails.org
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         env:
           ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
@@ -51,7 +51,7 @@ jobs:
           arguments: publish
       - name: Generate Documentation
         id: docs
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         if: success()
         with:
           arguments: groovydoc
