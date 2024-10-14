@@ -31,11 +31,17 @@ configurations {
 
 dependencies {
     compileOnly "org.grails:grails-core:$grailsVersion"
+    compileOnlyApi "jakarta.servlet:jakarta.servlet-api:$servletApiVersion"
 
     // used transitively by the generated tests
     api "org.gebish:geb-spock:$gebSpock"
     api "org.grails:grails-testing-support:$testingSupportVersion"
     api "org.grails:grails-datastore-gorm:$datastoreVersion"
+
+    implementation "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+    implementation "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
+    implementation "org.testcontainers:spock:$testcontainersVersion"
+    implementation "org.testcontainers:selenium:$testcontainersVersion"
 
     documentation "org.apache.groovy:groovy:$groovyVersion"
     documentation "org.apache.groovy:groovy-ant:$groovyVersion"
