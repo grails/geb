@@ -16,12 +16,14 @@ class ContainerGebSpec extends GebSpec {
     void setupSpec() {
         webDriverContainer = new BrowserWebDriverContainer()
         webDriverContainer.start()
-        browser.driver = new RemoteWebDriver(webDriverContainer.seleniumAddress, new ChromeOptions())
+        browser.driver = new RemoteWebDriver(webDriverContainer.seleniumAddress, new ChromeOptions(), false)
         browser.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30))
     }
 
     void setup() {
-        assert serverPort : "You must annotate your test class with @Integration for serverPort to be injected"
+        if (!serverPort) {
+            throw new IllegalStateException('You must annotate your test class with @Integration for serverPort to be injected')
+        }
         baseUrl = "http://host.docker.internal:$serverPort"
     }
 
