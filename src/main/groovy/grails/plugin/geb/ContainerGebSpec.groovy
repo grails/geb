@@ -1,4 +1,4 @@
-package org.grails.geb
+package grails.plugin.geb
 
 import geb.spock.GebSpec
 import org.openqa.selenium.chrome.ChromeOptions
