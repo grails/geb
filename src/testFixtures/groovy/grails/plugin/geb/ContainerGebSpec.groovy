@@ -1,4 +1,3 @@
-package grails.plugin.geb
 /*
  * Copyright 2024 original author or authors
  *
@@ -14,7 +13,7 @@ package grails.plugin.geb
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+package grails.plugin.geb
 
 import geb.spock.GebSpec
 import groovy.transform.PackageScope
