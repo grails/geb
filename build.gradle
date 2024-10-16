@@ -32,7 +32,6 @@ configurations {
 
 dependencies {
     compileOnly "org.grails:grails-core:$grailsVersion" // Provided as this is a Grails plugin
-    compileOnly "jakarta.servlet:jakarta.servlet-api:$servletApiVersion" // Provided by the servlet container
 
     testFixturesCompileOnly "jakarta.servlet:jakarta.servlet-api:$servletApiVersion"
     testFixturesApi "org.gebish:geb-spock:$gebSpock"
