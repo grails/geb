@@ -1,4 +1,4 @@
-package geb
+package grails.plugin.geb
 
 import grails.plugins.Plugin
 import grails.plugins.metadata.PluginSource
