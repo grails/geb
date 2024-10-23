@@ -3,10 +3,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/org.grails.plugins/geb.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/org.grails.plugins/geb)
 [![Java CI](https://github.com/grails/geb/actions/workflows/gradle.yml/badge.svg?event=push)](https://github.com/grails/geb/actions/workflows/gradle.yml)
 
-Geb Functional Testing for the Grails® framework.
-
-This plugin provides the Geb dependencies, a `create-functional-test` command for generating Geb tests in a Grails app
-and also adds a ContainerGebSpec that when inherited from automatically runs the browser in a container.
+## Geb Functional Testing for the Grails® framework
 
 This plugin provides the Geb dependencies and a `create-functional-test` command for generating Geb tests in a Grails app.
 
