@@ -1,28 +1,30 @@
 buildscript {
     repositories {
-        maven { url "https://repo.grails.org/grails/core" }
+        maven { url = 'https://repo.grails.org/grails/core' }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
     }
 }
 
-version projectVersion
-group "org.grails.plugins"
+version = projectVersion
+group = 'org.grails.plugins'
 
 apply plugin: 'java-library'
-apply plugin: 'idea'
+apply plugin: 'java-test-fixtures'
 apply plugin: 'org.grails.grails-plugin'
 apply plugin: 'org.grails.internal.grails-plugin-publish'
+apply plugin: 'maven-publish'
 
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
+        vendor = JvmVendorSpec.BELLSOFT
     }
 }
 
 repositories {
-    maven { url "https://repo.grails.org/grails/core" }
+    maven { url = 'https://repo.grails.org/grails/core' }
 }
 
 configurations {
@@ -30,20 +32,24 @@ configurations {
 }
 
 dependencies {
-    compileOnly "org.grails:grails-core:$grailsVersion"
 
-    // used transitively by the generated tests
-    api "org.gebish:geb-spock:$gebSpock"
-    api "org.grails:grails-testing-support:$testingSupportVersion"
-    api "org.grails:grails-datastore-gorm:$datastoreVersion"
+    implementation(platform("org.grails:grails-bom:$grailsVersion"))
 
-    documentation "org.apache.groovy:groovy:$groovyVersion"
-    documentation "org.apache.groovy:groovy-ant:$groovyVersion"
-    documentation "org.apache.groovy:groovy-templates:$groovyVersion"
-    documentation "com.github.javaparser:javaparser-core:$javaParserCoreVersion"
+    compileOnly 'org.grails:grails-core' // Provided as this is a Grails plugin
+
+    testFixturesCompileOnly 'jakarta.servlet:jakarta.servlet-api'
+    testFixturesApi 'org.gebish:geb-spock'
+    testFixturesApi 'org.grails:grails-testing-support'
+    testFixturesApi 'org.grails:grails-datastore-gorm'
+    testFixturesApi "org.testcontainers:selenium:$testcontainersVersion"
+    testFixturesApi "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+    testFixturesApi "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
+
+    documentation 'org.apache.groovy:groovy'
+    documentation 'org.apache.groovy:groovy-ant'
+    documentation 'org.apache.groovy:groovy-templates'
+    documentation 'com.github.javaparser:javaparser-core'
 }
-
-findMainClass.enabled = false
 
 grailsPublish {
     userOrg = 'grails'
@@ -51,38 +57,34 @@ grailsPublish {
     license {
         name = 'Apache-2.0'
     }
-    title = "Grails Geb Plugin"
-    desc = "Provides Integration with Geb for Functional Testing"
-    developers = [graemerocher: "Graeme Rocher", puneetbehl: "Puneet Behl"]
+    title = 'Grails Geb Plugin'
+    desc = 'Provides Integration with Geb for Functional Testing'
+    developers = [
+        graemerocher: 'Graeme Rocher',
+        puneetbehl: 'Puneet Behl',
+        sbglasius: 'Søren Berg Glasius',
+        matrei: 'Mattias Reichel'
+    ]
 }
 
-tasks.withType(Groovydoc) {
-    destinationDir = new File(buildDir, 'docs/api')
+tasks.withType(Groovydoc).configureEach {
+    destinationDir = layout.buildDirectory.dir('docs/api').get().asFile
     docTitle = "Grails Geb Plugin ${version}"
     classpath = configurations.documentation
 }
 
-tasks.withType(GroovyCompile) {
-    configure(groovyOptions) {
-        forkOptions.jvmArgs = ['-Xmx1024m']
-    }
-}
-
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
-}
-
-test {
     testLogging {
-        events "passed", "skipped", "failed"
-
+        events 'passed', 'skipped', 'failed'
         showExceptions true
-        exceptionFormat "full"
+        exceptionFormat 'full'
         showCauses true
         showStackTraces true
     }
 }
 
-bootJar.enabled = false
-bootRun.enabled = false
-bootTestRun.enabled = false
+tasks.named('bootJar') { enabled = false }
+tasks.named('bootRun') { enabled = false }
+tasks.named('bootTestRun') { enabled = false }
+tasks.named('findMainClass') { enabled = false }
